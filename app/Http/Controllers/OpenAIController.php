@@ -9,9 +9,9 @@ use Illuminate\Support\Facades\Http;
 class OpenAIController extends Controller
 {
 
-    public function index(): Jsonable
+    public function index(): \Illuminate\Http\JsonResponse
     {
-        $search = "laravel get ip address";
+        $search = "can you tel me everything ?";
 
         $data = Http::withHeaders([
             'Content-Type' => 'application/json',
