@@ -9,9 +9,9 @@ use Illuminate\Support\Facades\Http;
 class OpenAIController extends Controller
 {
 
-    public function index(): \Illuminate\Http\JsonResponse
+    public function index($text)
     {
-        $search = "can you tel me everything ?";
+        $search = $text;
 
         $data = Http::withHeaders([
             'Content-Type' => 'application/json',
@@ -34,7 +34,7 @@ class OpenAIController extends Controller
             ])
             ->json();
 
-        return response()->json($data['choices'][0]['message'], 200, array(), JSON_PRETTY_PRINT);
+        return $data;
     }
 
 }
